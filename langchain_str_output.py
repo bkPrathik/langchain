@@ -1,11 +1,11 @@
 from langchain_ollama import ChatOllama
-from typing import TypedDict
+from typing import TypedDict,Annotated
 
 # i will be using ollama models (i love running locally LOL!)
 model = ChatOllama(model='llama3.2:3b')  #need to check what all models support structured output, not all models support it.
 class Story_moral(TypedDict):
     
-    moral:str   #to get the moral of  the story , same can be done to find the snetiment of the setence
+    moral:Annotated[str,'a meaningfull moral summary of the story']   #to get the moral of  the story , same can be done to find the snetiment of the setence
     
 structured_output = model.with_structured_output(Story_moral)  #with_structured_output is used for those models that support str otpt
 
@@ -23,6 +23,5 @@ or that they weren't worth the effort to obtain"""
 
 result = structured_output.invoke(stroy)
 
-print(result)
 
 print(result['moral'])
