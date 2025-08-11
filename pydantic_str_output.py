@@ -2,7 +2,7 @@ from langchain_ollama import ChatOllama
 from typing import TypedDict,Annotated,Optional,Literal
 from pydantic import BaseModel ,Field
 #gemma3:4b
-model = ChatOllama(model='llama3.2:3b',temperature=0) 
+model = ChatOllama(model='qwen3:8b',temperature=0) 
 class review(BaseModel):
     
     proper_headline:str=Field(description='give it a proper nice headline')
