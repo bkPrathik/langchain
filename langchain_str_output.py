@@ -5,6 +5,7 @@ from typing import TypedDict,Annotated
 model = ChatOllama(model='llama3.2:3b')  #need to check what all models support structured output, not all models support it.
 class Story_moral(TypedDict):
     
+    #cannot force datatype in this method ,can;t expect string always 
     moral:Annotated[str,'a meaningfull moral summary of the story']   #to get the moral of  the story , same can be done to find the snetiment of the setence
     
 structured_output = model.with_structured_output(Story_moral)  #with_structured_output is used for those models that support str otpt
